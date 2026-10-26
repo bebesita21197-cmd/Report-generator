@@ -5,7 +5,7 @@
 <header class="top">
   <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><span class="sheen"></span>
   <div class="hl"><span class="logo"><b></b></span><div class="badges"><em>LIVE</em><em>COMET</em><em>FINDINGS</em></div></div>
-  <div class="ttl"><h1><span>Direct Report Generator</span></h1><p>Infringing + Source + Social files <i class="arw">&rarr;</i> Live Report / Comet Report Excel</p></div>
+  <div class="ttl"><h1><span>Direct Report Generator</span></h1><p>Upload Source Data Files<i class="arw">&rarr;</i> Live Report / Comet Report Excel</p></div>
   <div class="by"><span class="av">CP</span><div><small>Created by</small><b>Chandra Prakash Tripathi</b></div></div>
   <span class="beam"></span>
 </header>
@@ -45,7 +45,7 @@
       <label id="dropRem" class="drop" for="remFile">
         <input id="remFile" type="file" accept=".xlsx,.xls" hidden>
         <strong>Browse or drop filled removal Excel</strong>
-        <span>URL | Removal Time (IST) &rarr; Pending moves to Completed</span>
+        <span>URL | Removal Time (IST) &rarr; Pending data will move to Completed</span>
       </label>
       <ul id="remList" class="files"></ul>
     </section>
@@ -55,15 +55,15 @@
   <section class="card gen">
     <h2><span class="num">4</span>Settings &amp; Generate</h2>
     <div class="genrow">
-      <label>Since prior report (IST)<input id="since" type="datetime-local"></label>
-      <label>Report name (file name)<input id="reportName" type="text" placeholder="Required - file isi naam se banegi" autocomplete="off" maxlength="120"></label>
+      <label>Since prior report (ET)<input id="since" type="datetime-local"></label>
+      <label>Report name (file name)<input id="reportName" type="text" placeholder="Required - file will be created by this name" autocomplete="off" maxlength="120"></label>
       <div class="gobox"><button id="go" class="primary" disabled>Generate Live Report</button><button id="goComet" class="primary comet" disabled>Generate Comet Report</button><button id="goFind" class="primary findings" disabled title="No previous report needed - built only from the uploaded data files">Generate Findings Report</button></div>
     </div>
 
   </section>
     <section class="card logcard">
       <h2><span class="num">5</span>Process log</h2>
-      <div class="logempty">Generate karne ke baad log yaha square blocks me dikhega</div>
+      <div class="logempty"></div>
       <div class="logscroll">
       <div class="statusrow"><span id="status" class="status"></span><span id="result" class="result" hidden></span></div>
     <div id="stats" class="stats" hidden></div>
