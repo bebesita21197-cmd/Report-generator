@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Direct Report Generator</title><link rel="stylesheet" href="app.css"><link rel="stylesheet" href="neu.css"></head>
+<body>
+<header class="top">
+  <i class="orb o1"></i><i class="orb o2"></i><i class="orb o3"></i><span class="sheen"></span>
+  <div class="hl"><span class="logo"><b></b></span><div class="badges"><em>LIVE</em><em>COMET</em><em>FINDINGS</em></div></div>
+  <div class="ttl"><h1><span>Direct Report Generator</span></h1><p>Upload Source Data files<i class="arw">&rarr;</i> Live Report / Comet Report Excel</p></div>
+  <div class="by"><span class="av">CP</span><div><small>Created by</small><b>Chandra Prakash Tripathi</b></div></div>
+  <span class="beam"></span>
+</header>
+
+<main class="layout">
+  <div class="top3">
+    <section class="card">
+      <h2><span class="num">1</span>Previous reports <em>Live / Comet</em></h2>
+      <div class="dual">
+        <label id="dropPrev" class="drop" for="prevFile">
+          <input id="prevFile" type="file" accept=".xlsx" hidden>
+          <strong>Previous Live Report</strong>
+          <span>for Generate Live Report</span>
+        </label>
+        <label id="dropComet" class="drop" for="cometFile">
+          <input id="cometFile" type="file" accept=".xlsx" hidden>
+          <strong>Previous Comet Report</strong>
+          <span>for Generate Comet Report</span>
+        </label>
+      </div>
+      <ul id="prevList" class="files"></ul>
+      <ul id="cometList" class="files"></ul>
+    </section>
+
+    <section class="card">
+      <h2 class="ctr"><span class="num">2</span>New data files</h2>
+      <div id="platBtns" class="platbtns"></div>
+      <div class="selrow">
+        <button id="openTitles" type="button" class="secondary" disabled>&#9776; Select titles</button>
+        <span id="selSummary" class="selsum">Upload files to load titles</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2><span class="num">3</span>Pending removal update <em>optional</em>
+        <button id="tplBtn" type="button" class="secondary sm" title="Excel with 2 columns: URL | Removal Time (IST)">&#11015; Template</button></h2>
+      <label id="dropRem" class="drop" for="remFile">
+        <input id="remFile" type="file" accept=".xlsx,.xls" hidden>
+        <strong>Browse or drop filled removal Excel</strong>
+        <span>URL | Removal Time (IST) &rarr; Pending moves to Completed</span>
+      </label>
+      <ul id="remList" class="files"></ul>
+    </section>
+  </div>
+
+  <div class="bottom">
+  <section class="card gen">
+    <h2><span class="num">4</span>Settings &amp; Generate</h2>
+    <div class="genrow">
+      <label>Since prior report (IST)<input id="since" type="datetime-local"></label>
+      <label>Report name (file name)<input id="reportName" type="text" placeholder="Required - file isi naam se banegi" autocomplete="off" maxlength="120"></label>
+      <div class="gobox"><button id="go" class="primary" disabled>Generate Live Report</button><button id="goComet" class="primary comet" disabled>Generate Comet Report</button><button id="goFind" class="primary findings" disabled title="No previous report needed - built only from the uploaded data files">Generate Findings Report</button></div>
+    </div>
+
+  </section>
+    <section class="card logcard">
+      <h2><span class="num">5</span>Process log</h2>
+      <div class="logempty"></div>
+      <div class="logscroll">
+      <div class="statusrow"><span id="status" class="status"></span><span id="result" class="result" hidden></span></div>
+    <div id="stats" class="stats" hidden></div>
+      <div id="notes" class="notes" hidden></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer class="steps">
+  <ol id="stepList">
+    <li data-step="prev"><i></i><b>Previous report</b><small>Waiting</small></li>
+    <li data-step="read"><i></i><b>Read selected titles</b><small>Waiting</small></li>
+    <li data-step="build"><i></i><b>Build report</b><small>Waiting</small></li>
+    <li data-step="append"><i></i><b>Append to previous</b><small>Waiting</small></li>
+    <li data-step="rem"><i></i><b>Removal update</b><small>Waiting</small></li>
+    <li data-step="final"><i></i><b>Finalize sheets</b><small>Waiting</small></li>
+    <li data-step="write"><i></i><b>Write Excel</b><small>Waiting</small></li>
+  </ol>
+</footer>
+
+<div id="backdrop" class="backdrop" hidden></div>
+<aside id="drawer" class="drawer" aria-hidden="true">
+  <div id="dragger" class="dragger" title="Drag left/right to resize (double-click = reset)"></div>
+  <div class="dhead"><h2>Select titles</h2><button id="closeTitles" type="button" class="x" title="Close">&#10005;</button></div>
+  <div id="titleCount" class="tcount"></div>
+  <input id="titleSearch" type="text" placeholder="Search title... (all words, any order)" autocomplete="off">
+  <div class="dbtns"><button id="selAll" type="button" class="secondary sm">Select all shown</button><button id="selNone" type="button" class="secondary sm">Clear shown</button></div>
+  <div id="titleList" class="titlebox"></div>
+  <button id="doneTitles" type="button" class="primary sm">Done</button>
+</aside>
+
+<script src="lib/xlsx.full.min.js"></script>
+<script src="lib/exceljs.min.js"></script>
+<script src="lib/jszip.min.js"></script>
+<script src="notes-core.js"></script>
+<script src="glossary.js"></script>
+<script src="report-core.js"></script>
+<script src="append-core.js"></script>
+<script src="comet-core.js"></script>
+<script src="findings-logo.js"></script>
+<script src="findings-core.js"></script>
+<script src="validate-core.js"></script>
+<script src="app.js"></script>
+</body></html>
